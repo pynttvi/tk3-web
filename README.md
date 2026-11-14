@@ -1,5 +1,7 @@
 # TK3 Canvas
 
+[Play on GitHub Pages](https://pynttvi.github.io/tk3-web/) · [Source repository](https://github.com/pynttvi/tk3-web)
+
 A standalone, playable Canvas prototype of Tapan Kaikki using assets from the
 public GPL release. It includes ten campaign maps, 25 graphics sheets, sound effects,
 movement/collision, shooting, basic enemies, fullscreen, and an audio toggle.
@@ -41,25 +43,20 @@ No DOS runtime parity is claimed. See [license audit](docs/license-audit.json) a
 [credits and license](THIRD_PARTY_NOTICES.md). `npm run import-assets` reproduces
 the indexed PNGs from pinned originals, verifying Git blob IDs first.
 
-## Prepare GitHub Pages
+## Update GitHub Pages
 
-1. Move this entire folder into its own directory/repository. Keep hidden files,
-   especially `.github/` and `.gitignore`.
-2. Make changes in `src/`, `index.html`, `canvas.css`, or `public/`, then repeat
+1. Make changes in `src/`, `index.html`, `canvas.css`, or `public/`, then run
    the test/build/verify commands above. `dist/` is generated and Git-ignored.
-3. Push to your GitHub repository when ready. In **Settings → Pages → Build and
-   deployment → Source**, choose **GitHub Actions**.
-4. Open **Actions → Publish TK3 to GitHub Pages → Run workflow**. The included
-   workflow is manual; pushing files alone does not trigger publication.
-5. The deployment job exposes the Pages URL, normally
-   `https://YOUR_USERNAME.github.io/YOUR_REPOSITORY/`.
+2. Commit and push to [pynttvi/tk3-web](https://github.com/pynttvi/tk3-web).
+3. Open **Actions → Publish TK3 to GitHub Pages → Run workflow**.
+   Publication is manual; pushing alone does not deploy the site.
+4. The site is served at https://pynttvi.github.io/tk3-web/.
 
 All asset/module links are relative, so a repository subpath needs no base-URL
 configuration. Alternatively, host the complete contents of `dist/` with any
 static HTTP host. There is no backend, model server or Python requirement.
 
 Workflow references: [GitHub Pages custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
-Publishing to a real GitHub repository has not been performed for this bundle.
 
 ## Files and handoff
 
