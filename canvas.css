@@ -45,3 +45,6 @@ canvas{touch-action:none}
   .play-area:fullscreen>.toolbar button{pointer-events:auto;padding:7px 10px;background:#182118bb}
   .touch-controls{inset:auto max(12px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
 }
+
+/* Allow the graphics control to wrap on narrow screens. */
+.toolbar{flex-wrap:wrap}

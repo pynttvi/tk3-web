@@ -74,3 +74,5 @@ Workflow references: [GitHub Pages custom workflows](https://docs.github.com/en/
 The source-assisted game code, build/test scripts and public upstream assets are
 distributed under GPL version 3; preserve COPYING and upstream credits. The build includes
 `tk3-source.tar.gz` with editable source and build inputs beside the compiled code.
+
+The **Upscaled graphics** button switches between original and 4× nearest-neighbor sheets. Gameplay and aiming use the same coordinates in both modes. The default is off; failed loads leave current graphics active. See `public/assets/upscaled/` for provenance.

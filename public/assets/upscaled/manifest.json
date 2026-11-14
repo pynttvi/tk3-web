@@ -1,0 +1,131 @@
+{
+  "method": "nearest",
+  "scale": 4,
+  "files": [
+    {
+      "file": "bodyp.png",
+      "original_sha256": "66bacb1ac774d4527ee01a713439490946c890d3a0adf88e0e4c5db8aaeb4c5a",
+      "sha256": "8ce15b37e7b415d241af204625cb9ab799cd3d06cfc7c944476b09f6cefcad0e"
+    },
+    {
+      "file": "bomb.png",
+      "original_sha256": "eb7f581f99bd736e1efb2c7f103eafd37969f01a47e275968994edd0859e3921",
+      "sha256": "4e8380290ad3bb0b6d97d8697f58621948b2f532ff04fb19dcb52d823822fa87"
+    },
+    {
+      "file": "c4.png",
+      "original_sha256": "d912ae6487e3ea6b983e3000057237342c0a5a1881cf37cb0902b3980f6166f0",
+      "sha256": "416025e16cd611b87d9666fbb28e2542adbfcdcab4215c4585cbc526918ea2f8"
+    },
+    {
+      "file": "cool.png",
+      "original_sha256": "cf36b4b440ddab66b046de6bc0b75e64d6bb14ebf6ced077e73b13c2e597a54b",
+      "sha256": "3299de810b4fd5d870ed04f2261ef21a94fe3db0cbba8977b79a9d486e7cf6f4"
+    },
+    {
+      "file": "crates.png",
+      "original_sha256": "ef66299f4f8c4f73b07ccfac30ed1584cf7ac3cf67b325c08089810317dae803",
+      "sha256": "7524d3488dc7df686b0353452b23f420b6b52f8ac007e9c532cf83a285ada0b6"
+    },
+    {
+      "file": "effects.png",
+      "original_sha256": "f72ce7102cc02cd12b50376ecf6e0f6ac9af686c483586d026a92121c2a76aa8",
+      "sha256": "115042f10346fb4f418fa8fac5645e7863e63b065e887c9c1026e9a13b76340f"
+    },
+    {
+      "file": "eflogo.png",
+      "original_sha256": "1ab1f2f6685a84675a91a71cbac39d4ce3a4c5743c182a3f2174346c6850a649",
+      "sha256": "f2663896d499c87664ce351c7510cdb6b1d89069dbc7491e95f94d9796c7910e"
+    },
+    {
+      "file": "enemy0.png",
+      "original_sha256": "2e109f728fce6f02640a2d2493357e5c454604a5fc7fa445edff38107ed8ad9f",
+      "sha256": "cd3eed3b5aa5fa6a4dd00152c9b98691814636277caee52e16af92ec9d1cdfd2"
+    },
+    {
+      "file": "enemy1.png",
+      "original_sha256": "cceef7e7e9ed1ed002545ced1650759e3deea18a41519160808b1f9de6c6dda8",
+      "sha256": "c318b575a7d5473a5618db9538bbce82027a685477466612748e86d2dee65064"
+    },
+    {
+      "file": "enemy2.png",
+      "original_sha256": "838e5343f5220f388d22b2b7a3b79818fe6b8fe55b46c18d8a26f85014385798",
+      "sha256": "10ae6f827324cffff0fe9aab3775fb5f424e9e490cc13fab8d038862605a9a77"
+    },
+    {
+      "file": "enemy3.png",
+      "original_sha256": "4b5bcc473adec7ea3ea2de69644eb0ab6cb49c414903fe0d8bf7dea57e8a3489",
+      "sha256": "ebf1c4030dbeb4241e5723c59d10d9f163f72e0f53d3fc60ef5b87bf9c8509bc"
+    },
+    {
+      "file": "enemy4.png",
+      "original_sha256": "e3b34663fed4dc71cb71a44194f0f08e3f64be2d8c264ef9c04075fddc5081ce",
+      "sha256": "cd28ba560c7057bb1ed622fbf6301c8496729057c9108c195ea56fbb9f8c30d7"
+    },
+    {
+      "file": "enemy5.png",
+      "original_sha256": "98cbc0675c2fbd9f900129291b6e597571a9c0cc502f1a98021b139ce455bd63",
+      "sha256": "f848e38e62d389c6eaed551e4d93bf11a9f879a4399ada7518c51f3f1bb0bd4c"
+    },
+    {
+      "file": "enemy6.png",
+      "original_sha256": "a838c8da9dbe036b2448508f61fb7e8b4dbf794ee0a9a8b3b186ad5a4cdfd6e6",
+      "sha256": "d94a0b56dfccece63489f2ac8775e5dd8731609144c29fd675fe1022f7d2a773"
+    },
+    {
+      "file": "floor1.png",
+      "original_sha256": "661036f797166ef25103528982c0646e37c551e78a4d2974a54d57b45c4a685e",
+      "sha256": "698681d64286d127f665f79b76146a8f1f6645889b2efb6f4dd3f0c65c651dad"
+    },
+    {
+      "file": "pointer.png",
+      "original_sha256": "53950d1e36f347881a172d8f8b15eb736333357d4c692e485762b838a3b23e51",
+      "sha256": "efb223a59e80fd3f14ce15c095b811a0b2b37fb802530090596858b3ec22d370"
+    },
+    {
+      "file": "rambo2.png",
+      "original_sha256": "48538532083f56dcb5221e1c3989a6177b532f802dcd631adfd663c3a2fce66c",
+      "sha256": "f696cae828f3cecc6bafea5bf7cfbc5db4eaaaa0996a0d7899ebcebffb56dfeb"
+    },
+    {
+      "file": "shadows.png",
+      "original_sha256": "8b15db4a8c9337b5b826caf116b03375f45f2489fb90944376eddb66e2002512",
+      "sha256": "bbf50350a988699f47872c971d4cf67145b88e2e6e164aa0ecf0ce3678be9c84"
+    },
+    {
+      "file": "shop.png",
+      "original_sha256": "3fb1dfe585f7152a0642e6ca20f9d50a2ea74efc861604be961fd6cf79121d9f",
+      "sha256": "31dd45174c722eec80561fc43de30c99e3182562d102616e0d98badfcbfbe482"
+    },
+    {
+      "file": "subbari.png",
+      "original_sha256": "0a427f10f796ab1441396b672dc0cfe689258cfccc3d1da10b126929108bc03e",
+      "sha256": "a84e0ed346c1242d8718ccf1f94197b7da6841c4d4e010914bb79530643f5205"
+    },
+    {
+      "file": "sunset.png",
+      "original_sha256": "8f478ae5adc55343300c3f2fea5dba1124ac3c0232e362289fd9cbc700635fc9",
+      "sha256": "cb2fa069ca69e1b136157ecc0a826b2b224b7bb79d70a53ee5c50dd0a75fdd3e"
+    },
+    {
+      "file": "target.png",
+      "original_sha256": "12173ae4ac5f0e9771efd15476a96c085e961a8864cb154781bb0ba84c43600b",
+      "sha256": "261afe823185fa6a348c36133e5c954a8453f08790def050a1177af7586f23d7"
+    },
+    {
+      "file": "tk.png",
+      "original_sha256": "4065e8e8e97a49bee5da8ff6e5022493e808147570692a6ab3f346370d4690a7",
+      "sha256": "2c658a70aa26e28e8cfe27cecc926c24f1764d4820159a1645782609a03f882c"
+    },
+    {
+      "file": "walls1.png",
+      "original_sha256": "81aebce1ce7cbf3556d3323d59a736e3e8e54ceec75d3eb8f9182b548c10eb02",
+      "sha256": "3413df29bc982087c258f963eec109d7f618c584c3f2e0af10a87be14b0be090"
+    },
+    {
+      "file": "ware.png",
+      "original_sha256": "4bba4aaad99c9a1dfb8554321ac38c9c802db1e0a710c0ceb619d649f13da9bf",
+      "sha256": "3df18602c2f6c4b81b4a8c73356369e0af23df52801e3fb88ac1b5d3e2a43436"
+    }
+  ]
+}

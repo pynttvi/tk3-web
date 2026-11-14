@@ -16,11 +16,11 @@ class Element {
   getBoundingClientRect(){return {left:0,top:0,width:320,height:200};}
 }
 const ids=['game','level','overlay','status','start','overlay-title','overlay-note','mission','health','health-value',
-  'ammo','enemies','weapon','timer','pause','restart','sound','map','play-area','fullscreen','audio-status','touch-forward','touch-backward','touch-left','touch-right','touch-strafe-left',
+  'graphics','ammo','enemies','weapon','timer','pause','restart','sound','map','play-area','fullscreen','audio-status','touch-forward','touch-backward','touch-left','touch-right','touch-strafe-left',
   'touch-strafe-right','touch-fire','touch-weapon','controller','controller-status'];
 const elements=Object.fromEntries(ids.map(id=>[id,new Element()]));
 const canvas=elements.game;canvas.tagName='CANVAS';canvas.width=320;canvas.height=200;
-canvas.getContext=()=>({imageSmoothingEnabled:false,drawImage(){},fillRect(){},beginPath(){},moveTo(){},lineTo(){},stroke(){}});
+canvas.getContext=()=>({imageSmoothingEnabled:false,setTransform(){},drawImage(){},fillRect(){},beginPath(){},moveTo(){},lineTo(){},stroke(){}});
 const documentEvents=new Element();
 globalThis.document={getElementById:id=>elements[id],createElement:()=>new Element(),fullscreenElement:null,
   fullscreenEnabled:true,addEventListener:(name,callback)=>documentEvents.addEventListener(name,callback),
@@ -30,13 +30,13 @@ globalThis.window=new Element();
 const pendingImages=[];
 globalThis.Image=class {
   width=928;height=667;
-  decode(){return new Promise(resolve=>pendingImages.push(resolve));}
+  decode(){const scale=this.src.includes('upscaled/')?4:1;this.width=928*scale;this.height=667*scale;return new Promise(resolve=>pendingImages.push(resolve));}
 };
 const frames=[];globalThis.requestAnimationFrame=callback=>frames.push(callback);
 const level={id:'fixture',comment:'Fixture map',width:24,height:20,starts:[[2,2],[3,3]],enemies:[1,0,0,0,0,0,0],
   normal_crates:{health:0,weapons:[],ammunition:[]},
   cells:Array.from({length:480},(_,i)=>({type:i%24===0||i%24===23||i<24||i>=456?1:0,num:0,shadow:0}))};
-const scene={levels:[level],images:Object.fromEntries(['floor1','walls1','rambo2','enemy0','crates'].map(name=>[name,{file:name+'.png'}]))};
+const scene={levels:[level],images:Object.fromEntries(['floor1','walls1','rambo2','enemy0','crates'].map(name=>[name,{file:name+'.png',width:928,height:667}]))};
 fs.writeFileSync(new URL('../.test-build/scene.js',import.meta.url),'export default '+JSON.stringify(scene)+';');
 let gamepads=[];
 Object.defineProperty(globalThis,'navigator',{configurable:true,value:{getGamepads:()=>gamepads}});
@@ -151,4 +151,34 @@ test('controller API errors are reported and turn controller input off',()=>{
   elements.controller.dispatch('click');frames.shift()(2201);
   assert.equal(elements.controller['aria-pressed'],'false');
   assert.match(elements['controller-status'].textContent,/Blocked by browser/);
+});
+
+
+test('graphics toggle loads 4x sheets, preserves logical size and returns to original',async()=>{
+  const pending=elements.graphics.dispatch('click');
+  assert.equal(elements.graphics.disabled,true);
+  // The fixture Image emulates decoded dimensions for the requested scale.
+  for(const resolve of pendingImages.splice(0))resolve();
+  await pending;
+  assert.equal(elements.graphics['aria-pressed'],'true');
+  assert.equal(canvas.width,1280);assert.equal(canvas.height,800);
+  const back=elements.graphics.dispatch('click');
+  for(const resolve of pendingImages.splice(0))resolve();
+  await back;
+  assert.equal(canvas.width,320);assert.equal(canvas.height,200);
+  assert.equal(elements.graphics['aria-pressed'],'false');
+});
+
+
+test('missing upscaled files keep original graphics and permit retry',async()=>{
+  const original=globalThis.Image;
+  globalThis.Image=class {async decode(){throw new Error('Missing upscale');}};
+  try {
+    await elements.graphics.dispatch('click');
+    assert.equal(canvas.width,320);assert.equal(canvas.height,200);
+    assert.equal(elements.graphics['aria-pressed'],'false');
+    assert.equal(elements.graphics.disabled,false);
+    assert.match(elements.graphics.textContent,/retry/);
+    assert.match(elements.graphics.title,/Missing upscale/);
+  } finally {globalThis.Image=original;}
 });

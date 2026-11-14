@@ -8,29 +8,45 @@ export class Renderer {
   sheets:Record<string,HTMLImageElement>={};
   scene:any;
   camera={x:0,y:0};
+  graphicsScale=1;
+  width=320;
+  height=200;
   constructor(canvas:HTMLCanvasElement,scene:any) {
     this.canvas=canvas;this.scene=scene;
     const context=canvas.getContext('2d');if(!context)throw new Error('Canvas 2D unavailable');
     this.context=context;context.imageSmoothingEnabled=false;
   }
-  async load() {
+  async load(scale=1) {
+    const sheets:Record<string,HTMLImageElement>={};
+    const prefix=scale===4?'upscaled/nearest-4x/':'';
     await Promise.all(Object.entries(this.scene.images).map(async([name,entry]:[string,any])=>{
-      const image=new Image();image.src='assets/'+entry.file;await image.decode();this.sheets[name]=image;
+      const image=new Image();image.src='assets/'+prefix+entry.file;await image.decode();
+      if(image.width!==entry.width*scale||image.height!==entry.height*scale)
+        throw new Error('Unexpected graphics dimensions: '+entry.file);
+      sheets[name]=image;
     }));
+    // Install atomically so a failed load leaves the current graphics usable.
+    this.sheets=sheets;this.graphicsScale=scale;
+    this.canvas.width=this.width*scale;this.canvas.height=this.height*scale;
+    this.context.setTransform(scale,0,0,scale,0,0);this.context.imageSmoothingEnabled=false;
+  }
+  draw(image:HTMLImageElement,sx:number,sy:number,sw:number,sh:number,dx:number,dy:number,dw:number,dh:number) {
+    const scale=this.graphicsScale;
+    this.context.drawImage(image,sx*scale,sy*scale,sw*scale,sh*scale,dx,dy,dw,dh);
   }
   sprite(name:string,actor:any,enemy=false) {
     const image=this.sheets[name];if(!image)return;
-    const columns=Math.trunc(image.width/29),rows=Math.trunc(image.height/29);
+    const columns=Math.trunc(image.width/this.graphicsScale/29),rows=Math.trunc(image.height/this.graphicsScale/29);
     const column=Math.floor((((actor.angle%360)+360)%360)/360*columns)%columns;
     let row=enemy?(actor.flash?3:(actor.walk?Math.min(2,Math.floor(actor.walk/5)):1)):
       (actor.flash?6:(actor.walk?3+Math.min(2,Math.floor(actor.walk/5)):4));
     if(actor.health<=0)row=enemy?Math.min(rows-1,4):Math.min(rows-1,9);
     row=Math.min(row,rows-1);
-    this.context.drawImage(image,column*29+1,row*29+1,28,28,
+    this.draw(image,column*29+1,row*29+1,28,28,
       Math.round(actor.x-this.camera.x),Math.round(actor.y-this.camera.y),28,28);
   }
   render(state:any,map=false) {
-    const c=this.context,{width,height}=this.canvas,level=state.level;
+    const c=this.context,{width,height}=this,level=state.level;
     this.camera.x=Math.floor(Math.max(0,Math.min(level.width*20-width,state.player.x+14-width/2)));
     this.camera.y=Math.floor(Math.max(0,Math.min(level.height*20-height,state.player.y+14-height/2)));
     const cx=Math.floor(this.camera.x),cy=Math.floor(this.camera.y);
@@ -38,9 +54,9 @@ export class Renderer {
     for(let y=Math.floor(cy/20);y<Math.min(level.height,Math.ceil((cy+height)/20));y++)
       for(let x=Math.floor(cx/20);x<Math.min(level.width,Math.ceil((cx+width)/20));x++) {
         const tile=level.cells[y*level.width+x];const [sx,sy]=tileSource(tile.num);
-        c.drawImage(this.sheets[tile.type===0?'floor1':'walls1'],sx,sy,20,20,x*20-cx,y*20-cy,20,20);
+        this.draw(this.sheets[tile.type===0?'floor1':'walls1'],sx,sy,20,20,x*20-cx,y*20-cy,20,20);
       }
-    for(const crate of state.pickups)c.drawImage(this.sheets.crates,crate.kind*14,0,14,14,
+    for(const crate of state.pickups)this.draw(this.sheets.crates,crate.kind*14,0,14,14,
       Math.round(crate.x-cx),Math.round(crate.y-cy),14,14);
     for(const enemy of state.enemies)if(enemy.health<=0)this.sprite('enemy'+enemy.type,enemy,true);
     const actors=[...state.enemies.filter((enemy:any)=>enemy.health>0).map((actor:any)=>({name:'enemy'+actor.type,actor,enemy:true})),

@@ -66,3 +66,14 @@ for(const columns of [32,40])test(`renderer handles ${columns}-column sheets wit
   assert.equal(sx,(columns-1)*29+1);assert.ok(sx+width<=image.width);assert.ok(sy+height<=image.height);
   assert.equal(context.imageSmoothingEnabled,false);
 });
+
+
+test('4x renderer scales source rectangles while preserving sprite and world coordinates',()=>{
+  const calls=[];const context={drawImage:(...args)=>calls.push(args),fillRect(){},beginPath(){},moveTo(){},lineTo(){},stroke(){}};
+  const renderer=new Renderer({width:1280,height:800,getContext:()=>context},{});
+  renderer.graphicsScale=4;
+  const image={width:928*4,height:667*4};renderer.sheets.rambo2=image;
+  renderer.sprite('rambo2',{x:40,y:40,angle:359,health:100,walk:0,flash:0});
+  assert.deepEqual(calls[0].slice(1),[(31*29+1)*4,(4*29+1)*4,112,112,40,40,28,28]);
+  assert.equal(renderer.width,320);assert.equal(renderer.height,200);
+});

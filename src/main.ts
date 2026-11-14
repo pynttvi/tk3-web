@@ -23,6 +23,21 @@ let index=0,state:any,ready=false,started=false,showMap=false,fire=false,aim:num
 let last=0,accumulator=0;
 const overlay=element('overlay'),status=element('status'),startButton=element('start');
 const soundButton=element('sound');
+const graphicsButton=element('graphics') as HTMLButtonElement;
+graphicsButton.addEventListener('click',async()=>{
+  if(!ready||graphicsButton.disabled)return;
+  const scale=renderer.graphicsScale===1?4:1;
+  graphicsButton.disabled=true;graphicsButton.textContent='Loading graphics…';
+  try {
+    await renderer.load(scale);
+    graphicsButton.textContent='Upscaled graphics: '+(scale===4?'on':'off');
+    graphicsButton.setAttribute('aria-pressed',String(scale===4));graphicsButton.title='';
+    render();
+  } catch(error) {
+    graphicsButton.textContent='Graphics unavailable — retry';graphicsButton.title=String(error);
+  } finally {graphicsButton.disabled=false;canvas.focus();}
+});
+
 const effects=new SoundEffects((audioState,message)=>{
   soundButton.textContent=audioState==='ready'?'Sound on':audioState==='loading'?'Loading sound…':audioState==='error'?'Retry sound':'Enable sound';
   soundButton.setAttribute('aria-pressed',String(audioState==='ready'));
@@ -213,8 +228,8 @@ canvas.addEventListener('pointermove',(event)=>{
   if(event.pointerType==='touch')return;
   if(!ready||!state)return;
   const box=canvas.getBoundingClientRect();
-  const x=(event.clientX-box.left)/box.width*canvas.width+renderer.camera.x;
-  const y=(event.clientY-box.top)/box.height*canvas.height+renderer.camera.y;
+  const x=(event.clientX-box.left)/box.width*renderer.width+renderer.camera.x;
+  const y=(event.clientY-box.top)/box.height*renderer.height+renderer.camera.y;
   aim=Math.atan2(x-state.player.x-14,y-state.player.y-14)*180/Math.PI;
 });
 canvas.addEventListener('pointerdown',(event)=>{if(event.pointerType==='touch'||event.button!==0)return;effects.resumeFromGesture();canvas.focus();fire=true;event.preventDefault();});
