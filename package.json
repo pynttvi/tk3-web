@@ -1,0 +1,16 @@
+{
+  "name": "tk3-canvas",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "license": "GPL-3.0",
+  "engines": { "node": ">=22.13.0" },
+  "scripts": {
+    "import-assets": "node scripts/import-assets.mjs",
+    "build": "node --disable-warning=ExperimentalWarning scripts/build.mjs",
+    "test": "node --disable-warning=ExperimentalWarning scripts/test.mjs",
+    "verify": "node scripts/verify.mjs dist",
+    "start": "node scripts/serve.mjs",
+    "dev": "npm run build && npm start"
+  }
+}

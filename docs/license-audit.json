@@ -1,0 +1,333 @@
+{
+  "checked_on": "2026-11-14",
+  "upstream": "https://github.com/hkroger/ultimatetapankaikki",
+  "commit": "a3398b6ea1b898c399575c1e48c4564e806bd114",
+  "method": "Original inputs verified against pinned Git blob IDs; PNGs retain indexed palettes, dimensions and transparency.",
+  "license": "GPL-3.0",
+  "unresolved_assets": 0,
+  "omitted": [
+    "The supplied v3.0 DM map has no exact upstream match and is excluded."
+  ],
+  "assets": [
+    {
+      "kind": "image-source",
+      "id": "bodyp",
+      "upstream_path": "EFPS/BODYP.EFP",
+      "sha256": "4c863bf8781607091fc52bb1cb09397c226187922a92ae92c0a53cb7f4c69f83",
+      "git_blob_sha1": "fca64c754e897f6d1660b0ea5ec1801e04bbfaec",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "bomb",
+      "upstream_path": "EFPS/BOMB.EFP",
+      "sha256": "07cacd69de8c8d8a0ec49d66b650757f835d4f10172eb97f1bd54628ca1a778a",
+      "git_blob_sha1": "7bd9e56554edbbd759c687ae39adb72ec819834a",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "c4",
+      "upstream_path": "EFPS/C4.EFP",
+      "sha256": "634082ea9ba4fd1abc3b1f4c7c32fad29e2f911da105aa5c486d2471e8b0f229",
+      "git_blob_sha1": "18bdcd176373872f6462b5db6ea7316b1b6bb726",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "cool",
+      "upstream_path": "EFPS/COOL.EFP",
+      "sha256": "47a4a933cbd0f1bbf5f116aba7b7e2f0b77c503471dfc5bf000ce22a88d66b23",
+      "git_blob_sha1": "f6b2c712fa8e7dd6ff4092c813ab355dfa051683",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "crates",
+      "upstream_path": "EFPS/CRATES.EFP",
+      "sha256": "546f46c52767445f827ad4616719e2773cc849d3f79557e0c208a09a2d444514",
+      "git_blob_sha1": "baeb84aa5d1d6578bba3fb1c3a77f5fa5799b9e3",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "effects",
+      "upstream_path": "EFPS/EFFECTS.EFP",
+      "sha256": "0ddc51d1fb9c43db07c14a6206bf74cb6c727438ccc6f85f7f32e4d802454d2d",
+      "git_blob_sha1": "58906f5e73a8ac3b03c25d80af041cdf5305517b",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "eflogo",
+      "upstream_path": "EFPS/EFLOGO.EFP",
+      "sha256": "c20660a71ad97292fd8b9b567bda3d3b362bfc0696897af04d5c907008e1aeba",
+      "git_blob_sha1": "7c66c240d12530d582fb8251c65ad03923fcfe79",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "enemy0",
+      "upstream_path": "EFPS/ENEMY0.EFP",
+      "sha256": "1068372f6f696bc0fd3e107ec8b6124326aced3dc8eb1d0e4ee158bb74990ea1",
+      "git_blob_sha1": "28bf3bb88e4fb721820fc8cb03c6dc67ac497dd2",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "enemy1",
+      "upstream_path": "EFPS/ENEMY1.EFP",
+      "sha256": "f69c61ca8a658a44be0d8f2cc468c2b0eaca114eb020841dbae1b106c1f32af8",
+      "git_blob_sha1": "5ce210be55e80527382f467e7849c1a34492ba73",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "enemy2",
+      "upstream_path": "EFPS/ENEMY2.EFP",
+      "sha256": "5a6bcecfe5af1611be22d41606b9cc43977c3e8d81082357e06872886a7c5e52",
+      "git_blob_sha1": "e92f666963d33056adc6aa4ead55b4225450592c",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "enemy3",
+      "upstream_path": "EFPS/ENEMY3.EFP",
+      "sha256": "d633245fce9253ae3a69c5dec16026fb659068f40a49c99dc3358a8f1fda86e9",
+      "git_blob_sha1": "46da73d9db1f9d7526a60469a615ecda710f7a79",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "enemy4",
+      "upstream_path": "EFPS/ENEMY4.EFP",
+      "sha256": "57ad51051bc44bf180cc0dbf89df47e759d6ccd86a72286ce93ab301e211e0fc",
+      "git_blob_sha1": "2d65a53735c577bd55dc8403f52d48e8b43161ad",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "enemy5",
+      "upstream_path": "EFPS/ENEMY5.EFP",
+      "sha256": "ee49eb1bf1a24f5a22f0b9fd0d51853412337f3e66e03a0ce456822cc22b2501",
+      "git_blob_sha1": "8bba061aaa612709410692672a9de56ae037d408",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "enemy6",
+      "upstream_path": "EFPS/ENEMY6.EFP",
+      "sha256": "218036b9c910545b5f8d383fbc03164c002bf48e5707aa513040a1f899e98499",
+      "git_blob_sha1": "6314330c7d85c15ceddfd492c0608603be85c684",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "floor1",
+      "upstream_path": "EFPS/FLOOR1.EFP",
+      "sha256": "cc8d52fb0fe3b68b06d1b49f0c529dfbb90fbc972334e980b2709e4ed418e241",
+      "git_blob_sha1": "a410e90a5ce7349d740e238c6967a128bca9fa25",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "pointer",
+      "upstream_path": "EFPS/POINTER.EFP",
+      "sha256": "4bb90f40cabfd36314041018c6f05a1292a8fdd49f5feb522d8ac1c8db35a24c",
+      "git_blob_sha1": "4f803db1b41bd7530c71b816089d7a6a6dce0428",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "rambo2",
+      "upstream_path": "EFPS/RAMBO2.EFP",
+      "sha256": "6f1512cf70ed0dfae2e7a1c132c5b80886f3caf81cceed44e1b684fd42ca0c99",
+      "git_blob_sha1": "e70136c45fd2d4829619df6ba676297d5b02a559",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "shadows",
+      "upstream_path": "EFPS/SHADOWS.EFP",
+      "sha256": "a2afc16a79cf89077c5eabc4cbd03c6815b09d95b22e854442e1acf1d65abdf3",
+      "git_blob_sha1": "491863547930b9d78f87bd532391c8c748f4088f",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "shop",
+      "upstream_path": "EFPS/SHOP.EFP",
+      "sha256": "83fcc14e368c3490f30e683fe5adeed3cd9baf944b27d575e9f2abd17fcd7805",
+      "git_blob_sha1": "e301602c8ad89dd00f81c9483713748f4a8d253c",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "subbari",
+      "upstream_path": "EFPS/SUBBARI.EFP",
+      "sha256": "e0017bbbae394022e5ba7244094e54fedf420c14f1e802a17b9b01ca993da893",
+      "git_blob_sha1": "c0c77ccf39593fa6f2905d26353043903d4cce9e",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "sunset",
+      "upstream_path": "EFPS/SUNSET.EFP",
+      "sha256": "34134fab7da2758604e5299fb200185a0841bcea96c939fc3d1c9ba6a4032642",
+      "git_blob_sha1": "1506107b7e0031b48622cc090d21218f53a778c5",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "target",
+      "upstream_path": "EFPS/TARGET.EFP",
+      "sha256": "2222d45b1e72d32c5c47abe73f8b186183cbf089ca8e6a4f6dabe43f982113bc",
+      "git_blob_sha1": "9205d4b922631774af7624ed7cd1f546c454fc48",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "tk",
+      "upstream_path": "EFPS/TK.EFP",
+      "sha256": "6e912db9259494a33881ad2adb68ec7f944a87511c42841462200e069e1f37e9",
+      "git_blob_sha1": "a55fc308d8044906a86c612249b5a33dea72e8dc",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "walls1",
+      "upstream_path": "EFPS/WALLS1.EFP",
+      "sha256": "6cc43949b2089c33dd525166a474a33f91c132b67aefd10be3c4b488b072bb79",
+      "git_blob_sha1": "f86badfea23e27ebba2f2c17f5a3ca224cf63dfc",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "image-source",
+      "id": "ware",
+      "upstream_path": "EFPS/WARE.EFP",
+      "sha256": "42531e9051234a21e0283fe64ea6fa3fffacb686b43f52f2cbbe620a79593c3a",
+      "git_blob_sha1": "856eb7a0d24cb99c61ba252d2b4917ca5190d7a1",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "map-source",
+      "id": "level1",
+      "upstream_path": "LEVS/DEFAULT/LEVEL1.LEV",
+      "sha256": "a4120fa7e56f92855a23001a9fa78c13e30a2ef8ead24a5ea25e74fe57e0a5bc",
+      "git_blob_sha1": "139bdf5cbb31e724a088d071d2bcbb1caa7953ee",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "map-source",
+      "id": "level2",
+      "upstream_path": "LEVS/DEFAULT/LEVEL2.LEV",
+      "sha256": "fa426309d9529480abd2940c6ba20e7b443f734f71b09fe96779e326d9f5c636",
+      "git_blob_sha1": "ec78081d7c3d968b949d45d399914f07a384ed56",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "map-source",
+      "id": "level3",
+      "upstream_path": "LEVS/DEFAULT/LEVEL3.LEV",
+      "sha256": "c1fe10c08d8b7b1f19595a8855a4202c2a74a88566f940e9c621e0171403bc40",
+      "git_blob_sha1": "346e17178055563f1f485c1f76ac381b939df3d7",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "map-source",
+      "id": "level4",
+      "upstream_path": "LEVS/DEFAULT/LEVEL4.LEV",
+      "sha256": "303c5a837465035dab38d58223326bd32c3379ef55c278d931a2f142b32d8c71",
+      "git_blob_sha1": "f03b795376dd0a18b9edac420cb1ef6ba24a762b",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "map-source",
+      "id": "level5",
+      "upstream_path": "LEVS/DEFAULT/LEVEL5.LEV",
+      "sha256": "de2b655adcd6ee646c0d35280a03fef703b6a4864be477c48df805ed606e5a6e",
+      "git_blob_sha1": "5b42b6cdfa584910cd5dedf3c49c4f5a751fa60d",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "map-source",
+      "id": "level6",
+      "upstream_path": "LEVS/DEFAULT/LEVEL6.LEV",
+      "sha256": "b263032b2b1208f1e9623bfeccc2b29410c3218ee574df4ad8c690ffa82fd9d1",
+      "git_blob_sha1": "521adae1f03cc8772bdf7f6894b83a2f865d4532",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "map-source",
+      "id": "level7",
+      "upstream_path": "LEVS/DEFAULT/LEVEL7.LEV",
+      "sha256": "7dbc7ac27bdf6f50529b51f0b17d39f7ddc7556a1161ec2e051b3a1db0b99111",
+      "git_blob_sha1": "fbb8ee15595e57446537a2654f11f96c4e5a4c8d",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "map-source",
+      "id": "level8",
+      "upstream_path": "LEVS/DEFAULT/LEVEL8.LEV",
+      "sha256": "87d06416f03d60030937e7c195208d1e45170925a642d717da3fe86b0dbb374b",
+      "git_blob_sha1": "ab85869670b3f1d50d0bcf88dddb8a89fbe7f142",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "map-source",
+      "id": "level9",
+      "upstream_path": "LEVS/DEFAULT/LEVEL9.LEV",
+      "sha256": "b71f5dfb8a017be6f147eda9d4a4f52434d8c643be74a1409065455d991fc4a0",
+      "git_blob_sha1": "2137191073ad7e4550d34f70dc98c44ffa10e5a3",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "map-source",
+      "id": "level10",
+      "upstream_path": "LEVS/DEFAULT/LEVEL10.LEV",
+      "sha256": "61c1ecf12ec52af8bdc9f711db279c93a50970e3be00b8eb63640d61d1c4e253",
+      "git_blob_sha1": "b629020d884feb8ab2aeb5820a1cb20481312118",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "sound",
+      "id": "death.wav",
+      "upstream_path": "WAVS/DEATH.WAV",
+      "sha256": "93fcb43a4bca58bccb28d27bb76a93dd05b0ed5a22ffff3f3ebfb35cf4641f78",
+      "git_blob_sha1": "7e221177913808009a650a330899b425a7a907ad",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "sound",
+      "id": "explo.wav",
+      "upstream_path": "WAVS/EXPLO.WAV",
+      "sha256": "aae5aa0989e55b3ba8ccfda1026906be541edc91596ba0149c44f81531bc2bb6",
+      "git_blob_sha1": "60325cf2c247d5d419e7cc44cc64ed676e916a21",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "sound",
+      "id": "hit.wav",
+      "upstream_path": "WAVS/HIT.WAV",
+      "sha256": "a24a8c4975d19974bc2b63434cfefa117d50166451f845c10dfe6c951d3479aa",
+      "git_blob_sha1": "f1a13938ac879b8880beb22b0451ab01278012bb",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "sound",
+      "id": "pistol.wav",
+      "upstream_path": "WAVS/PISTOL.WAV",
+      "sha256": "a7fbbf8112ee313f3544ac8f2c773d4854c142746e52bb298f36e5da0b284eed",
+      "git_blob_sha1": "1178df76e2bd30bf1e18ec2d24f9285ae02a09b3",
+      "status": "exact-byte-match"
+    },
+    {
+      "kind": "sound",
+      "id": "rifle.wav",
+      "upstream_path": "WAVS/RIFLE.WAV",
+      "sha256": "aa649fd2330c2a0b3b2c606ea9f7cebe53261917c633a4534241a2ec47241f0f",
+      "git_blob_sha1": "479380e15e62c68f391c187461d24e244685fa11",
+      "status": "exact-byte-match"
+    }
+  ]
+}

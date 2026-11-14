@@ -1,0 +1,11 @@
+{
+  "status": "built",
+  "images": 25,
+  "levels": 10,
+  "asset_source": "https://github.com/hkroger/ultimatetapankaikki/tree/a3398b6ea1b898c399575c1e48c4564e806bd114",
+  "unverified": [
+    "DOS runtime parity",
+    "Exact tick/AI/RNG behavior",
+    "Shop, all weapons, lighting, multiplayer and music"
+  ]
+}

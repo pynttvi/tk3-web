@@ -1,0 +1,2 @@
+# Preserve upstream byte hashes, DOS line endings and original encodings.
+vendor/tk-upstream/** -text -diff

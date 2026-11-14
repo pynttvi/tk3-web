@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TK3 · Canvas field test</title><link rel="stylesheet" href="canvas.css"></head>
+<body><div class="shell">
+<header class="masthead"><div><span class="eyebrow">ERROR FREE PRODUCTIONS / LOCAL RECONSTRUCTION</span>
+<h1>TAPAN KAIKKI<span>3</span></h1><p>Original terrain. Familiar trouble.</p></div>
+<div class="edition"><span class="dot"></span> CANVAS FIELD TEST <small>SUPPLIED DOS EDITION · V3.0</small></div></header>
+<main><section id="play-area" class="play-area" aria-label="Game">
+<div class="instrument"><div><small>OPERATOR</small><strong>PLAYER 01</strong></div><div><small>SECTOR</small><strong id="mission">Loading…</strong></div>
+<div class="state"><span class="dot"></span><strong id="status" aria-live="polite">Loading</strong></div></div>
+<div class="viewport"><canvas id="game" width="320" height="200" tabindex="0" aria-label="TK3 game. WASD to move, mouse to aim, click to fire. Arrows for tank controls."></canvas>
+<div id="overlay" class="overlay"><span class="eyebrow">MISSION BRIEF</span><h2 id="overlay-title">Loading your game files…</h2>
+<p id="overlay-note">Preparing original maps and graphics.</p><button id="start" class="primary">Start mission <span>↗</span></button></div></div>
+<div class="hud"><div class="vitals"><small>HEALTH <b id="health-value">100</b></small><progress id="health" max="100" value="100"></progress></div>
+<div><small>AMMO</small><strong id="ammo">160</strong></div><div><small>HOSTILES</small><strong id="enemies">—</strong></div>
+<div class="loadout"><small>LOADOUT</small><strong id="weapon">Pistol</strong></div><div><small>ELAPSED</small><strong id="timer">00:00</strong></div></div>
+<div class="toolbar"><button id="pause">Pause</button><button id="restart">Restart</button><button id="map" aria-pressed="false">Map · Tab</button><button id="fullscreen" aria-pressed="false">Fullscreen</button><button id="sound" aria-pressed="false">Enable sound</button></div>
+<p id="audio-status" class="audio-status" role="status" aria-live="polite">Sound off. Enable sound to hear a test shot.</p>
+</section><aside><section class="panel"><span class="eyebrow">01 / DEPLOYMENT</span><h2>Choose your ground.</h2>
+<label for="level">Original map</label><select id="level"></select><p class="detail">Eliminate the hostiles, collect supplies, and advance to the next sector.</p></section>
+<section class="panel controls"><span class="eyebrow">02 / FIELD MANUAL</span><h2>Stay moving.</h2>
+<dl><div><dt>Move</dt><dd><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></dd></div><div><dt>Aim / fire</dt><dd>Mouse / click</dd></div>
+<div><dt>Change weapon</dt><dd><kbd>1</kbd>–<kbd>4</kbd></dd></div><div><dt>Tank controls</dt><dd>Arrow keys</dd></div><div><dt>Strafe</dt><dd><kbd>Q</kbd><kbd>E</kbd></dd></div>
+<div><dt>Fire / map</dt><dd><kbd>Space</kbd> / <kbd>Tab</kbd></dd></div><div><dt>Pause</dt><dd><kbd>P</kbd></dd></div></dl></section>
+<section class="prototype"><span class="eyebrow">RECONSTRUCTION IN PROGRESS</span><p>Your original maps, graphics, and sounds. Enemy behavior, equipment, and timing are provisional.</p>
+<a href="build-report.json">Build notes ↗</a></section></aside></main>
+<footer><span>TK3 / NATIVE CANVAS 2D</span><span>Source-assisted prototype · <a href="THIRD_PARTY_NOTICES.md">Credits &amp; license</a> · <a href="tk3-source.tar.gz">Source code</a></span></footer>
+</div><script type="module" src="main.js"></script></body></html>
