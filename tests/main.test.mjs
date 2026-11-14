@@ -10,12 +10,14 @@ class Element {
   addEventListener(name,callback){this.listeners.set(name,callback);}
   dispatch(name,event={}){return this.listeners.get(name)?.({target:this,preventDefault(){},...event});}
   append(child){this.children.push(child);}
+  setPointerCapture(){}
   focus(){this.focused=true;}
   setAttribute(name,value){this[name]=value;}
   getBoundingClientRect(){return {left:0,top:0,width:320,height:200};}
 }
 const ids=['game','level','overlay','status','start','overlay-title','overlay-note','mission','health','health-value',
-  'ammo','enemies','weapon','timer','pause','restart','sound','map','play-area','fullscreen','audio-status'];
+  'ammo','enemies','weapon','timer','pause','restart','sound','map','play-area','fullscreen','audio-status','touch-forward','touch-backward','touch-left','touch-right','touch-strafe-left',
+  'touch-strafe-right','touch-fire','touch-weapon','controller','controller-status'];
 const elements=Object.fromEntries(ids.map(id=>[id,new Element()]));
 const canvas=elements.game;canvas.tagName='CANVAS';canvas.width=320;canvas.height=200;
 canvas.getContext=()=>({imageSmoothingEnabled:false,drawImage(){},fillRect(){},beginPath(){},moveTo(){},lineTo(){},stroke(){}});
@@ -36,6 +38,8 @@ const level={id:'fixture',comment:'Fixture map',width:24,height:20,starts:[[2,2]
   cells:Array.from({length:480},(_,i)=>({type:i%24===0||i%24===23||i<24||i>=456?1:0,num:0,shadow:0}))};
 const scene={levels:[level],images:Object.fromEntries(['floor1','walls1','rambo2','enemy0','crates'].map(name=>[name,{file:name+'.png'}]))};
 fs.writeFileSync(new URL('../.test-build/scene.js',import.meta.url),'export default '+JSON.stringify(scene)+';');
+let gamepads=[];
+Object.defineProperty(globalThis,'navigator',{configurable:true,value:{getGamepads:()=>gamepads}});
 await import('../.test-build/main.js');
 
 test('controls during asynchronous image loading do not access uninitialized state',()=>{
@@ -91,4 +95,60 @@ test('sound control unlocks audio and provides confirmation and mute feedback',a
   assert.equal(stats.sources.filter(source=>source.started).length,1);
   elements.sound.dispatch('click');assert.equal(elements.sound.textContent,'Enable sound');
   assert.equal(elements['audio-status'].textContent,'Sound off.');
+});
+
+test('touch supports simultaneous movement and fire, cancellation and pause cleanup',()=>{
+  elements.restart.dispatch('click');elements.start.dispatch('click');
+  elements['touch-forward'].dispatch('pointerdown',{button:0,pointerId:1});
+  elements['touch-fire'].dispatch('pointerdown',{button:0,pointerId:2});
+  frames.shift()(101);frames.shift()(126);
+  assert.equal(elements.ammo.textContent,'159');
+  assert.equal(elements['touch-forward']['data-held'],'true');
+  elements['touch-forward'].dispatch('pointercancel',{pointerId:1});
+  assert.equal(elements['touch-forward']['data-held'],'false');
+  assert.equal(elements['touch-fire']['data-held'],'true');
+  elements['touch-fire'].dispatch('lostpointercapture',{pointerId:2});
+  for(let now=151;now<=626;now+=25)frames.shift()(now);
+  assert.equal(elements.ammo.textContent,'159');
+  elements['touch-weapon'].dispatch('click');frames.shift()(651);
+  assert.notEqual(elements.weapon.textContent,'Pistol');
+  elements['touch-fire'].dispatch('pointerdown',{button:0,pointerId:3});
+  elements.pause.dispatch('click');
+  assert.equal(elements['touch-fire']['data-held'],'false');
+  elements.pause.dispatch('click');
+  for(let now=676;now<=1126;now+=25)frames.shift()(now);
+  assert.equal(elements.ammo.textContent,'159');
+});
+
+test('controller is opt-in, supports fire, weapon edges, pause, disconnect and disable',()=>{
+  let now=1151;
+  const tick=(count=1)=>{for(let i=0;i<count;i++){frames.shift()(now);now+=25;}};
+  const pad={id:'Test controller',index:0,connected:true,mapping:'standard',axes:[0,0,0,0],
+    buttons:Array.from({length:17},()=>({pressed:false}))};
+  window.dispatch('focus');elements.restart.dispatch('click');elements.start.dispatch('click');
+  gamepads=[pad];pad.buttons[7].pressed=true;tick(12);
+  assert.equal(elements.ammo.textContent,'160');
+  elements.controller.dispatch('click');tick();
+  assert.equal(elements.controller['aria-pressed'],'true');
+  assert.match(elements['controller-status'].textContent,/Connected: Test controller/);
+  assert.equal(elements.ammo.textContent,'159');
+  pad.buttons[7].pressed=false;pad.buttons[5].pressed=true;tick();
+  const weapon=elements.weapon.textContent;
+  assert.notEqual(weapon,'Pistol');tick(3);assert.equal(elements.weapon.textContent,weapon);
+  pad.buttons[9].pressed=true;tick();assert.equal(elements.status.textContent,'Paused');
+  tick();assert.equal(elements.status.textContent,'Paused');
+  pad.buttons[9].pressed=false;tick();pad.buttons[9].pressed=true;tick();
+  assert.equal(elements.status.textContent,'Active');
+  pad.buttons[9].pressed=false;gamepads=[];tick();
+  assert.match(elements['controller-status'].textContent,/Waiting/);
+  const ammo=elements.ammo.textContent;tick(12);assert.equal(elements.ammo.textContent,ammo);
+  gamepads=[pad];pad.buttons[7].pressed=true;
+  elements.controller.dispatch('click');tick(12);assert.equal(elements.ammo.textContent,ammo);
+  assert.equal(elements.controller['aria-pressed'],'false');
+});
+test('controller API errors are reported and turn controller input off',()=>{
+  navigator.getGamepads=()=>{throw new Error('Blocked by browser');};
+  elements.controller.dispatch('click');frames.shift()(2201);
+  assert.equal(elements.controller['aria-pressed'],'false');
+  assert.match(elements['controller-status'].textContent,/Blocked by browser/);
 });
