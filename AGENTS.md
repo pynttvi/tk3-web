@@ -59,9 +59,9 @@ are generated. Do not edit generated copies to implement a change.
 
 ## GitHub Pages
 
-A manual .github/workflows/pages.yml is included. It runs tests/build/verification,
-then publishes dist/. In repository Settings → Pages select GitHub Actions, then
-run the workflow when ready. No repository/account identity or credentials are
+The .github/workflows/pages.yml runs on pushes to main and supports manual runs.
+It runs tests/build/verification, then publishes dist/. In repository Settings →
+Pages select GitHub Actions. No repository/account identity or credentials are
 embedded. Do not publish or push without the user's instruction.
 
 The bundle was validated with automated tests and HTTP checks. A graphical

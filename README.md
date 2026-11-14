@@ -47,9 +47,10 @@ the indexed PNGs from pinned originals, verifying Git blob IDs first.
 
 1. Make changes in `src/`, `index.html`, `canvas.css`, or `public/`, then run
    the test/build/verify commands above. `dist/` is generated and Git-ignored.
-2. Commit and push to [pynttvi/tk3-web](https://github.com/pynttvi/tk3-web).
-3. Open **Actions → Publish TK3 to GitHub Pages → Run workflow**.
-   Publication is manual; pushing alone does not deploy the site.
+2. Commit and push to `main` in [pynttvi/tk3-web](https://github.com/pynttvi/tk3-web).
+3. **Publish TK3 to GitHub Pages** runs automatically and deploys after tests,
+   build, and verification pass. You can also use **Actions → Publish TK3 to
+   GitHub Pages → Run workflow** to deploy manually.
 4. The site is served at https://pynttvi.github.io/tk3-web/.
 
 All asset/module links are relative, so a repository subpath needs no base-URL

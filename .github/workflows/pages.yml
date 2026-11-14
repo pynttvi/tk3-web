@@ -1,7 +1,9 @@
 name: Publish TK3 to GitHub Pages
 
-# Prepare locally first, then run this workflow explicitly when ready to publish.
+# Deploy main after tests, build, and verification pass.
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 concurrency:
