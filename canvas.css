@@ -21,3 +21,27 @@ canvas{touch-action:none}
 @media(any-pointer:coarse) and (max-height:450px){.play-area:fullscreen{--game-width:min(calc(100vw - 24px),calc((100dvh - 230px)*1.6))}.play-area:fullscreen>.touch-controls{padding:4px}.play-area:fullscreen .touch-controls button{min-height:40px}.play-area:fullscreen .touch-pad{grid-template-rows:repeat(2,40px)}}
 
 .controller-status{margin:8px 0 0;font:11px/1.5 monospace;color:#9ba990;overflow-wrap:anywhere}.play-area:fullscreen>.controller-status{width:var(--game-width);flex-shrink:0}.play-area:fullscreen{--game-width:min(calc(100vw - 24px),calc((100dvh - 310px)*1.6))}@media(any-pointer:coarse){.play-area:fullscreen{--game-width:min(calc(100vw - 24px),calc((100dvh - 450px)*1.6))}}@media(max-height:450px){.play-area:fullscreen>.controller-status{display:none}.play-area:fullscreen{--game-width:min(calc(100vw - 24px),calc((100dvh - 150px)*1.6))}}@media(any-pointer:coarse) and (max-height:450px){.play-area:fullscreen{--game-width:min(calc(100vw - 24px),calc((100dvh - 270px)*1.6))}}
+
+/* Touch controls float over the game instead of taking space from the canvas. */
+@media(any-pointer:coarse){
+  .touch-controls{position:absolute;z-index:2;inset:auto 12px 12px;display:flex;gap:8px;padding:0;border:0;background:transparent;pointer-events:none}
+  .touch-pad,.touch-actions{pointer-events:auto}
+  .touch-controls button{padding:8px;border-radius:50%;background:#18211899;border-color:#dce1d980;color:#fff;box-shadow:0 2px 8px #0006}
+  .touch-controls button[data-held="true"]{background:#a6bc84e6;color:#101310}
+  .touch-actions{gap:8px}
+  .touch-actions>div{gap:8px}
+  .touch-actions button{font-size:11px;min-width:48px}
+  .touch-controls .touch-fire{min-width:60px;min-height:60px;background:#e6a46dbb}
+  .overlay{z-index:3}
+  .play-area:fullscreen{--game-width:min(calc(100vw - 24px),calc((100dvh - 310px)*1.6))}
+}
+@media(any-pointer:coarse) and (orientation:landscape){
+  main{grid-template-columns:1fr}
+  .play-area:fullscreen{position:relative;padding:0;--game-width:100vw}
+  .play-area:fullscreen>.viewport{width:100%;height:100%;aspect-ratio:auto;border:0}
+  .play-area:fullscreen canvas{object-fit:contain}
+  .play-area:fullscreen>.instrument,.play-area:fullscreen>.hud,.play-area:fullscreen>.audio-status,.play-area:fullscreen>.controller-status{display:none}
+  .play-area:fullscreen>.toolbar{position:absolute;z-index:4;top:0;left:0;width:100%;margin:0;padding:6px max(12px,env(safe-area-inset-right)) 6px max(12px,env(safe-area-inset-left));gap:6px;pointer-events:none}
+  .play-area:fullscreen>.toolbar button{pointer-events:auto;padding:7px 10px;background:#182118bb}
+  .touch-controls{inset:auto max(12px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
+}
